@@ -1,9 +1,11 @@
-var isLoginValid = function(username, password){
-    return true;
+var loginDal = require('./../dal/loginDal');
+
+var getUserByCredentials = function(username, password, cb){
+    loginDal.getUserByCredentials(username, password, cb)
 }
 
 module.exports = function(options){
     return {
-        isLoginValid: isLoginValid
+        getUserByCredentials: getUserByCredentials
     };
 }

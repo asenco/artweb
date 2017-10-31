@@ -10,11 +10,14 @@ module.exports = function(app){
     });
     
     app.post('/loginAttempt', urlencodedParser, function(req, res){
-        if(loginCtrl.isLoginValid(req.body.username, req.body.password)){
-            res.redirect("/home");
-        }
-        else{
-            res.redirect("/login");
-        }
+        loginCtrl.getUserByCredentials(req.body.username, req.body.password, function(err, user){
+            console.log(err, user);
+            if(!err && user){
+                res.redirect("/home");
+            }
+            else{
+                res.redirect("/login");
+            }
+        })
     });
 }

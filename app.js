@@ -4,6 +4,11 @@ require('./modules/landing/server/routes/landing')(app);
 require('./modules/login/server/routes/login')(app);
 require('./modules/home/server/routes/home')(app);
 
+var mongoose = require('mongoose');
+
+global.db = (global.db ? 
+             global.db : 
+             mongoose.createConnection('mongodb://localhost:27017/artweb'));
 
 app.get('/', function (req, res) {
   res.redirect('/landing');
