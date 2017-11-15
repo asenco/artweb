@@ -1,14 +1,42 @@
+<!DOCTYPE html>
 <html>
+<head>
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script>
+        /*$('#password, #confirmpassword').on('keyup', function () {
+              if ($('#password').val() == $('#confirmpassword').val()) {
+                $('#message').html('Matching').css('color', 'green');
+              } else 
+                $('#message').html('Not Matching').css('color', 'red');
+            });*/
+        
+        var check = function() {
+          if (document.getElementById('password').value ==
+            document.getElementById('confirmpassword').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+            document.getElementById('submit').disabled = false;
+          } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'not matching';
+              document.getElementById('submit').disabled = true;
+          }
+        }
+    </script>
+    
+</head>
+    
+<body>
     <form action="/addNewUser" method="post">
         <input name="username" type="text" placeholder="username" required>
         <button type="submit" formaction="/checkAvailability">Check Availability</button>
-        <label name="lblAvailability" hidden="true">Disclose Availability</label>
+        <span id='messageAvailability'></span>
         <br/>
-        
-        
-        <input disabled="true" name="password" type="password" placeholder="password" required><br/>
-        <input disabled="true" name="confirmpassword" type="password" placeholder="confirm password" required><br/>
-        <button type="submit" formaction="/addUser">Add Me!</button>
+        <input name="password" id="password" type="password" placeholder="password" onkeyup='check();'><br/>
+        <input name="confirmpassword" id="confirmpassword" type="password" placeholder="confirm password" onkeyup='check();'>
+        <span id='message'></span><br/>
+        <button disabled="true" id="submit" type="submit" formaction="/addUser">Add Me!</button>
     </form>
+</body>
 </html>
 

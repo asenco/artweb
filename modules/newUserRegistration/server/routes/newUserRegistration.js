@@ -39,12 +39,10 @@ module.exports = function(app){
                 if(result){
                     console.log('Found ' + result + 'entries. Username is not available, I am at invoke');
                     res.send('Not Available');
-                    //res.body.lblAvailability.text = 'Not available!';
                 }
                 else{
                     console.log('Found ' + result + 'entries. Username is available, I am at invoke');
                     res.send('Available');
-                    //res.body.lblAvailability.text = 'Available!';
                 }
                 
             }
