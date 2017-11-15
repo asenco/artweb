@@ -1,8 +1,14 @@
 <html>
     <form action="/addNewUser" method="post">
         <input name="username" type="text" placeholder="username" required>
-        <input name="password" type="password" placeholder="password" required>
-        <button type="submit">Add Me!</button>
+        <button type="submit" formaction="/checkAvailability">Check Availability</button>
+        <label name="lblAvailability" hidden="true">Disclose Availability</label>
+        <br/>
+        
+        
+        <input disabled="true" name="password" type="password" placeholder="password" required><br/>
+        <input disabled="true" name="confirmpassword" type="password" placeholder="confirm password" required><br/>
+        <button type="submit" formaction="/addUser">Add Me!</button>
     </form>
 </html>
 
