@@ -8,7 +8,7 @@ var addNewUser = function(user, callback){
         else{
             console.log('Data is inserted in the Collection User in MongoDB, I am in DAL');
             console.log(result);
-            callback(null, 1);
+            callback(null, result.ops[0].username);
         }
 
     });

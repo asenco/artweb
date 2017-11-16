@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
+
 require('./modules/landing/server/routes/landing')(app);
 require('./modules/login/server/routes/login')(app);
 require('./modules/home/server/routes/home')(app);
 require('./modules/newUserRegistration/server/routes/newUserRegistration')(app);
+require('./modules/updateUserProfile/server/routes/updateUserProfile')(app);
+require('./modules/logout/server/routes/logout')(app);
 
 var mongoose = require('mongoose');
 
